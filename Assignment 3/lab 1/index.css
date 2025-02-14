@@ -3,10 +3,10 @@ body {
   }
   
   h1 {
-    color: #375e97;
+    color: hotpink;
     font-size: 2em;
     font-family: Georgia, "Times New Roman", Times, serif;
-    border-bottom: 1px solid #375e97;
+    border-bottom: 10px dotted purple;
   }
   
   h2 {
@@ -24,5 +24,11 @@ body {
   }
   
   a:hover {
-    text-decoration: none;
+    text-decoration: green;
+  }
+
+  ul {
+    background-color: #eee;
+    border: 5px solid purple;
+    padding: 25px 0px 25px 25px;
   }
