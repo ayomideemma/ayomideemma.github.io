@@ -6,5 +6,15 @@ html {
 div {
   width: 200px;
   height: 200px;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; 
+  font-size: 1.1rem; /*1.1rem ≈ 17.6px */
+  background-color: #f00b0b;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px black;
+ 
 }
+
+
