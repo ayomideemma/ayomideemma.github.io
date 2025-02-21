@@ -28,15 +28,16 @@ body {
     padding: .5em;
     top: 0;
     position: sticky;
-    width: 98%;
+    width: 98.5%;
     overflow: auto;
+    
   }
   
 
   nav ul {
+    justify-content: space-between;
     
-    position: sticky;
-    display: inline-flex;
+    display: flex;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -50,7 +51,7 @@ body {
     padding: .5em 1em;
     float: left;
     text-align: center;
-    width: 250px;
+    
   }
 
   article{
