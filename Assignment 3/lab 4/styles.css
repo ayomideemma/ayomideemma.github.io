@@ -27,26 +27,51 @@ body {
     background-color: #000;
     padding: .5em;
     top: 0;
+    position: sticky;
+    width: 98%;
+    overflow: auto;
   }
   
+
   nav ul {
+    
+    position: sticky;
+    display: inline-flex;
     margin: 0;
     padding: 0;
     list-style: none;
   }
   
   nav a {
+    font-size: 15px;
+    display: inline-flex;
     color: #fff;
     text-decoration: none;
     padding: .5em 1em;
+    float: left;
+    text-align: center;
+    width: 250px;
   }
+
+  article{
+    flex: 2;
+  }
+
+ 
+
+ 
   
   .photos {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
   }
 
   .feature {
-      width: 200px;
+    width: 200px;
+    float: left;
+    margin: 10px;
   }
