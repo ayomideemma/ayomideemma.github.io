@@ -59,10 +59,14 @@ body {
 
   aside{
     flex: 1;
-    display: flex;
+    
   }
 
- 
+ .grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  }
 
  
   
