@@ -13,36 +13,44 @@ function randomValueFromArray(array){
   return array[random];
 }
 
-var storytest = "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day."
+var storyText = "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day."
 
-let insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"]
-let insertY = ["the soup kitchen", "Disneyland", "the White House"]
-let insertZ = ["spontaneously combusted", "melted into a puddle on the sidewalk", "turned into a slug and crawled away"]
+const insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"]
+const insertY = ["the soup kitchen", "Disneyland", "the White House"]
+const insertZ = ["spontaneously combusted", "melted into a puddle on the sidewalk", "turned into a slug and crawled away"]
 
 randomize.addEventListener('click', result);
 
 function result() {
+  let newStory = storyText
 
   if(customName.value !== '') {
     const name = customName.value;
-    newStory = newStory.replace('Bob', name);
+    newStory = newStory.replace("Bob", name);
   }
 
   if(document.getElementById("uk").checked) {
+    // Convert 300 pounds to stones (1 stone = 14 pounds)
     const weight = Math.round(300 / 14) + ' stone';
-    const temperature = Math.round((94 - 32) * (5 / 9)) + ' centigrade';
-
-    newStory = newStory.replace('94°F', tempInCelsius)
-                       .replace('300 pounds', weightInStones);
+    // Convert 94 Fahrenheit to centigrade using the formula: (F - 32) * 5/9
+    const temperature = Math.round((94 - 32) * 5 / 9) + ' centigrade';
+    
+    newStory = newStory.replace('300 pounds', weight);
+    newStory = newStory.replace('94 fahrenheit', temperature);
+    
   }
+
+ 
+  var xItem = randomValueFromArray(insertX);
+  var yItem = randomValueFromArray(insertY);
+  var zItem = randomValueFromArray(insertZ);
+
+  newStory = newStory.replace(':insertx:', xItem).replace(':insertx:', xItem);
+  newStory = newStory.replace(':inserty:', yItem).replace(':inserty:', yItem);
+  newStory = newStory.replace(':insertz:', zItem).replace(':insertz:', zItem);
 
   story.textContent = newStory;
   story.style.visibility = 'visible';
+
 }
 
-newStory = newStory.replace(':insertx:', xItem)
-                    .replace(':inserty:', yItem)
-                    .replace(':insertz:',zItem)
-var xItem = randomValueFromArray()
-var yItem = randomValueFromArray()
-var zItem = randomValueFromArray()
