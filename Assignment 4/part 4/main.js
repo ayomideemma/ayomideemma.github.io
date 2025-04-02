@@ -187,18 +187,28 @@ const evil = new EvilCircle(
   random(0, height)
 );
 
+// Update the score display initially
+scorePara.textContent = "Ball count: " + ballCount;
+
   // Animation loop to update and draw balls continuously
   function loop() {
     // Fill the canvas with a semi-transparent black rectangle to create a trail effect
     ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
     ctx.fillRect(0, 0, width, height);
     
-    // Loop through all balls, drawing, updating, and checking for collisions
+    // Process each ball if it exists
     for (const ball of balls) {
+      if (ball.exists){
       ball.draw();
       ball.update();
       ball.collisionDetect();
     }
+  }
+
+  // Process the evil circle
+  evil.draw();
+  evil.checkBounds();
+  evil.collisionDetect();
     
     requestAnimationFrame(loop);
   }
