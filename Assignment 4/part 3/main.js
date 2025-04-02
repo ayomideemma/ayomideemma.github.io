@@ -96,3 +96,20 @@ while (balls.length < 25) {
     balls.push(ball);
   }
 
+  // Animation loop to update and draw balls continuously
+  function loop() {
+    // Fill the canvas with a semi-transparent black rectangle to create a trail effect
+    ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
+    ctx.fillRect(0, 0, width, height);
+    
+    // Loop through all balls, drawing, updating, and checking for collisions
+    for (const ball of balls) {
+      ball.draw();
+      ball.update();
+      ball.collisionDetect();
+    }
+    
+    requestAnimationFrame(loop);
+  }
+  
+  loop();
