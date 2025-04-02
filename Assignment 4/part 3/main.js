@@ -1,3 +1,11 @@
+// Name: Aderinboye Ayomide Emmnauel
+// File: index.html
+// Date: 18 march 2025
+// Student ID: 100994931
+// Description: file to declare the content of the page and the button.
+
+
+
 // setup canvas
 
 const canvas = document.querySelector("canvas");
