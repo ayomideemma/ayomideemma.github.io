@@ -127,6 +127,39 @@ draw() {
   ctx.stroke();
 }
 
+// Keep the evil circle within the bounds of the canvas
+checkBounds() {
+  if ((this.x + this.size) >= width) {
+    this.x = width - this.size;
+  }
+  if ((this.x - this.size) <= 0) {
+    this.x = this.size;
+  }
+  if ((this.y + this.size) >= height) {
+    this.y = height - this.size;
+  }
+  if ((this.y - this.size) <= 0) {
+    this.y = this.size;
+  }
+}
+
+// Check collision with each ball; "eat" the ball if it touches the evil circle
+collisionDetect() {
+  for (const ball of balls) {
+    if (ball.exists) {
+      const dx = this.x - ball.x;
+      const dy = this.y - ball.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance < this.size + ball.size) {
+        ball.exists = false;
+        ballCount--;
+        scorePara.textContent = "Ball count: " + ballCount;
+      }
+    }
+  }
+}
+}
+
 
 // Create an array to store all balls
 const balls = [];
