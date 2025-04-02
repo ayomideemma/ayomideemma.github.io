@@ -81,4 +81,18 @@ class Ball {
 // Create an array to store all balls
 const balls = [];
 
+// Create 25 balls with random position, velocity, size, and color
+while (balls.length < 25) {
+    const size = random(10, 20);
+    const ball = new Ball(
+      // Ensure ball is drawn fully within the canvas boundaries
+      random(size, width - size),
+      random(size, height - size),
+      random(-7, 7),
+      random(-7, 7),
+      randomRGB(),
+      size
+    );
+    balls.push(ball);
+  }
 
