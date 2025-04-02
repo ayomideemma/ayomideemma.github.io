@@ -26,9 +26,17 @@ const altText = {
 
 /* Looping through images */
 
-const newImage = document.createElement('img');
-newImage.setAttribute('src', xxx);
-newImage.setAttribute('alt', xxx);
-thumbBar.appendChild(newImage);
+imageFiles.forEach(image => {
+    const newImage = document.createElement('img');
+    newImage.setAttribute('src', `images/${image}`);
+    newImage.setAttribute('alt', altText[image]);
+    thumbBar.appendChild(newImage);
+
+    // Click event to update the displayed image
+    newImage.addEventListener('click', () => {
+        displayedImage.setAttribute('src', `images/${image}`);
+        displayedImage.setAttribute('alt', altText[image]);
+    });
+});
 
 /* Wiring up the Darken/Lighten button */
