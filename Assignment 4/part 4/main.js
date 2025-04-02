@@ -161,10 +161,11 @@ collisionDetect() {
 }
 
 
-// Create an array to store all balls
+// Create an array to hold our balls and a counter for the score
 const balls = [];
+let ballCount = 0;
 
-// Create 25 balls with random position, velocity, size, and color
+// Create 25 balls with random properties
 while (balls.length < 25) {
     const size = random(10, 20);
     const ball = new Ball(
@@ -177,7 +178,14 @@ while (balls.length < 25) {
       size
     );
     balls.push(ball);
+    ballCount++;
   }
+
+  // Create one evil circle instance at a random position
+const evil = new EvilCircle(
+  random(0, width),
+  random(0, height)
+);
 
   // Animation loop to update and draw balls continuously
   function loop() {
