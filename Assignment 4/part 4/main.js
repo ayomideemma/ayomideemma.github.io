@@ -26,27 +26,41 @@ function randomRGB() {
   return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
 
+// Reference to the score paragraph (assumes a <p> element exists in your HTML)
+const scorePara = document.querySelector("p");
+
+
+// Base Shape class
+class Shape {
+  constructor(x, y, velX, velY) {
+    this.x = x;
+    this.y = y;
+    this.velX = velX;
+    this.velY = velY;
+  }
+}
+
 // Ball class to model each bouncing ball
-class Ball {
+class Ball extends Shape{
     constructor(x, y, velX, velY, color, size) {
-      this.x = x;
-      this.y = y;
-      this.velX = velX;
-      this.velY = velY;
-      this.color = color;
-      this.size = size;
+    super(x, y, velX, velY);
+    this.color = color;
+    this.size = size;
+    this.exists = true;
     }
 
-    // Draw the ball on the canvas
+    // Draw the ball if it exists
     draw() {
-        ctx.beginPath();
-        ctx.fillStyle = this.color;
-        ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-        ctx.fill();
+      if (!this.exists) return;
+      ctx.beginPath();
+      ctx.fillStyle = this.color;
+      ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+      ctx.fill();
     }
 
-    // Update the ball's position and reverse velocity if it hits a wall
+  // Update position and bounce off the canvas edges
   update() {
+    if (!this.exists) return;
     if ((this.x + this.size) >= width) {
       this.velX = -this.velX;
     }
@@ -63,10 +77,10 @@ class Ball {
       this.y += this.velY;
     }
 
-    // Check for collisions with other balls and change color if a collision is detected
+  // Detect collisions with other balls (only if both exist)
   collisionDetect() {
     for (const ball of balls) {
-      if (this !== ball) {
+      if (this !== ball && ball.exists) {
         const dx = this.x - ball.x;
         const dy = this.y - ball.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
