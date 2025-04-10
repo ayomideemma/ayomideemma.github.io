@@ -1,3 +1,9 @@
+// Name: Aderinboye Ayomide Emmnauel
+// File: main.js
+// Date: 10 April 2025
+// Student ID: 100994931
+// Description: Toggles comment visibility by switching button text and dynamically appending submitted comments to the list.
+
 // functionality for showing/hiding the comments section
 
 const showHideBtn = document.querySelector('.show-hide');
