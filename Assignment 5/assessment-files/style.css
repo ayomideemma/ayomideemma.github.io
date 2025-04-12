@@ -63,11 +63,11 @@ nav, article, footer, .secondary {
   background-color: rgb(255, 255, 255);
 }
 
-article {
+article, footer, .secondary {
   padding: 10px 30px;
 }
 
-mRFIN {
+article {
   margin-right: 10px;
 }
 
@@ -92,7 +92,7 @@ nav li {
 }
 
 nav a {
-   display: inline-block;
+  display: inline-block;
   font-size: 2rem;
   text-transform: uppercase;
   text-decoration: none;
